@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e321dc16fa4b8ac4dac30455b2e0b423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunTransform: {fileID: 1089252268}
   moveSpeed: 5
 --- !u!1 &1089252267
 GameObject:
