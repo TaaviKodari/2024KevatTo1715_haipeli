@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Vector2 moveInput;
+    private Vector2 aimInput;
     private Master controls;
     private Rigidbody2D body;
 
@@ -39,7 +40,33 @@ public class PlayerController : MonoBehaviour
     }
     void Update(){
         Shoot();
+        Aim();
     }
+
+    void Aim()
+    {
+        aimInput = controls.Player.Aim.ReadValue<Vector2>();
+        if(aimInput.sqrMagnitude > 0.1){
+            //Debug.Log(aimInput);
+            Vector2 aimDirection = Vector2.zero;
+            if(UsingMouse()){
+
+            }
+            else{
+                aimDirection = aimInput;
+            }
+            
+        }
+    }
+
+    bool UsingMouse(){
+        if(Mouse.current.delta.ReadValue().sqrMagnitude > 0.1){
+            return true;
+        }
+
+        return false;
+    }
+
     void Shoot()
     {
         if(controls.Player.Fire.triggered){
